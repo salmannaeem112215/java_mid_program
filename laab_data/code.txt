@@ -1,0 +1,553 @@
+package figure5;
+import java.util.*;
+
+public class MallManagement {
+	private String mallName;
+	private List<Floor> floors;
+	private int numberOfEmployees;
+	private Maintenance maintenance;
+	private List<Employee> employees;
+	private List<Customer> customers;
+	
+	public MallManagement(String name, int num) {
+		this.mallName = name;
+		this.numberOfEmployees = num;
+	}
+
+	public void addEmployee(Employee employee) {
+        employees.add(employee);
+    }
+	
+	 // Getters and setters for the attributes
+    public String getMallName() {
+        return mallName;
+    }
+
+    public void setMallName(String mallName) {
+        this.mallName = mallName;
+    }
+    
+    public List<Floor> getFloors() {
+        return floors;
+    }
+
+    public void setFloors(List<Floor> floors) {
+        this.floors = floors;
+    }
+    
+    public int getNumberOfEmployees() {
+        return numberOfEmployees;
+    }
+
+    public void setNumberOfEmployees(int numberOfEmployees) {
+        this.numberOfEmployees = numberOfEmployees;
+    }
+    
+    public Maintenance getMaintenance() {
+        return maintenance;
+    }
+
+    public void setMaintenance(Maintenance maintenance) {
+        this.maintenance = maintenance;
+    }
+    
+    public List<Employee> getEmployees() {
+        return employees;
+    }
+
+    public void setEmployees(List<Employee> employees) {
+        this.employees = employees;
+    }
+    
+    public List<Customer> getCustomers() {
+        return customers;
+    }
+
+    public void setCustomers(List<Customer> customers) {
+        this.customers = customers;
+    }
+}
+
+//..................................................................................
+
+package figure5;
+import java.util.*;
+
+public class Floor {
+	private int floorNumber;
+    private int numberOfShops;
+    private List<Shops> shops;
+
+    public Floor(int floorNumber, int numberOfShops) {
+        this.floorNumber = floorNumber;
+        this.numberOfShops = numberOfShops;
+    }
+
+    public void floorDetails() {
+        System.out.println("Floor Number: " + floorNumber);
+        System.out.println("Number of Shops: " + numberOfShops);
+    }
+
+    public void shopStatus() {
+        System.out.println("Checking shop status on Floor " + floorNumber);
+        // Add logic to check and display shop status here
+    }
+    
+    public void addShop(Shops shop) {
+        shops.add(shop);
+    }
+
+    // Getters and setters for the attributes
+    public int getFloorNumber() {
+        return floorNumber;
+    }
+
+    public void setFloorNumber(int floorNumber) {
+        this.floorNumber = floorNumber;
+    }
+
+    public int getNumberOfShops() {
+        return numberOfShops;
+    }
+
+    public void setNumberOfShops(int numberOfShops) {
+        this.numberOfShops = numberOfShops;
+    }
+    
+    public List<Shops> getShops() {
+        return shops;
+    }
+
+    public void setShops(List<Shops> shops) {
+        this.shops = shops;
+    }
+	
+}
+
+//.......................................................................
+
+package figure5;
+
+public class Shops {
+	private String shopName;
+    private String ownerName;
+    private double areaOfShop;
+    private int numberOfEmployees;
+
+    public Shops(String shopName, String ownerName, double areaOfShop, int numberOfEmployees) {
+        this.shopName = shopName;
+        this.ownerName = ownerName;
+        this.areaOfShop = areaOfShop;
+        this.numberOfEmployees = numberOfEmployees;
+    }
+
+    public void calcBill() {
+        System.out.println("Calculating the bill for " + shopName);
+        // Add logic to calculate the bill here
+    }
+
+    public void shopDetails() {
+        System.out.println("Shop Name: " + shopName);
+        System.out.println("Owner Name: " + ownerName);
+        System.out.println("Area of Shop: " + areaOfShop + " square meters");
+        System.out.println("Number of Employees: " + numberOfEmployees);
+    }
+
+    // Getters and setters for the attributes
+    public String getShopName() {
+        return shopName;
+    }
+
+    public void setShopName(String shopName) {
+        this.shopName = shopName;
+    }
+
+    public String getOwnerName() {
+        return ownerName;
+    }
+
+    public void setOwnerName(String ownerName) {
+        this.ownerName = ownerName;
+    }
+
+    public double getAreaOfShop() {
+        return areaOfShop;
+    }
+
+    public void setAreaOfShop(double areaOfShop) {
+        this.areaOfShop = areaOfShop;
+    }
+
+    public int getNumberOfEmployees() {
+        return numberOfEmployees;
+    }
+
+    public void setNumberOfEmployees(int numberOfEmployees) {
+        this.numberOfEmployees = numberOfEmployees;
+    }
+}
+
+//..................................................................
+
+package figure5;
+
+public class Maintenance {
+	private int floorNumber;
+    private String maintenanceInchargeName;
+    private boolean maintenanceCheck;
+    private int numberOfEmployees;
+    private Floor floor;
+    private Electricals electricals;
+
+    public Maintenance(int floorNumber, String maintenanceInchargeName, boolean maintenanceCheck, int numberOfEmployees, Floor associatedFloor, Electricals electricals) {
+        this.floorNumber = floorNumber;
+        this.maintenanceInchargeName = maintenanceInchargeName;
+        this.maintenanceCheck = maintenanceCheck;
+        this.numberOfEmployees = numberOfEmployees;
+        this.floor = associatedFloor;
+        this.electricals = electricals;
+    }
+
+    public void maintenanceDetails() {
+        System.out.println("Maintenance Details for Floor " + floorNumber);
+        System.out.println("Maintenance Incharge: " + maintenanceInchargeName);
+        System.out.println("Maintenance Check: " + (maintenanceCheck ? "Passed" : "Failed"));
+    }
+
+    public void staffDetails() {
+        System.out.println("Number of Maintenance Employees: " + numberOfEmployees);
+    }
+
+    public void checkMaintenance() {
+        if(maintenanceCheck) {
+        	System.out.println("No need for maintenance.");
+        }
+        else {
+        	System.out.println("Maintenance required!");
+        }
+    }
+    
+    public Floor getAssociatedFloor() {
+        return floor;
+    }
+
+    public void setAssociatedFloor(Floor associatedFloor) {
+        this.floor = associatedFloor;
+    }
+    
+    public Electricals getElectricals() {
+        return electricals;
+    }
+
+    public void setElectricals(Electricals electricals) {
+        this.electricals = electricals;
+    }
+
+    // Getters and setters for the attributes
+    public int getFloorNumber() {
+        return floorNumber;
+    }
+
+    public void setFloorNumber(int floorNumber) {
+        this.floorNumber = floorNumber;
+    }
+
+    public String getMaintenanceInchargeName() {
+        return maintenanceInchargeName;
+    }
+
+    public void setMaintenanceInchargeName(String maintenanceInchargeName) {
+        this.maintenanceInchargeName = maintenanceInchargeName;
+    }
+
+    public boolean isMaintenanceCheck() {
+        return maintenanceCheck;
+    }
+
+    public void setMaintenanceCheck(boolean maintenanceCheck) {
+        this.maintenanceCheck = maintenanceCheck;
+    }
+
+    public int getNumberOfEmployees() {
+        return numberOfEmployees;
+    }
+
+    public void setNumberOfEmployees(int numberOfEmployees) {
+        this.numberOfEmployees = numberOfEmployees;
+    }
+}
+
+//..................................................................................
+
+package figure5;
+import java.util.List;
+
+public class Employee {
+	private int employeeID;
+    private String employeeName;
+    private int employeeAge;
+    private double employeeSalary;
+    private List<Customer> associatedCustomers;
+
+    public Employee(int employeeID, String employeeName, int employeeAge, double employeeSalary) {
+        this.employeeID = employeeID;
+        this.employeeName = employeeName;
+        this.employeeAge = employeeAge;
+        this.employeeSalary = employeeSalary;
+    }
+
+    public void employeeDetails() {
+        System.out.println("Employee ID: " + employeeID);
+        System.out.println("Employee Name: " + employeeName);
+        System.out.println("Employee Age: " + employeeAge);
+        System.out.println("Employee Salary: $" + employeeSalary);
+    }
+
+    public void calcSalary() {
+        System.out.println("Calculating salary for " + employeeName);
+        // Add logic to calculate the salary here
+    }
+    
+    public List<Customer> getAssociatedCustomers() {
+        return associatedCustomers;
+    }
+
+    public void addAssociatedCustomer(Customer customer) {
+        associatedCustomers.add(customer);
+    }
+
+    // Getters and setters for the attributes
+    public int getEmployeeID() {
+        return employeeID;
+    }
+
+    public void setEmployeeID(int employeeID) {
+        this.employeeID = employeeID;
+    }
+
+    public String getEmployeeName() {
+        return employeeName;
+    }
+
+    public void setEmployeeName(String employeeName) {
+        this.employeeName = employeeName;
+    }
+
+    public int getEmployeeAge() {
+        return employeeAge;
+    }
+
+    public void setEmployeeAge(int employeeAge) {
+        this.employeeAge = employeeAge;
+    }
+
+    public double getEmployeeSalary() {
+        return employeeSalary;
+    }
+
+    public void setEmployeeSalary(double employeeSalary) {
+        this.employeeSalary = employeeSalary;
+    }
+}
+
+//..........................................................................
+
+package figure5;
+
+public class Customer {
+	private int cID;
+    private String cName;
+    private double purchasedAmount;
+    private Employee associatedEmployee;
+
+    public Customer(int customerID, String customerName, double purchasedAmount) {
+        this.cID = customerID;
+        this.cName = customerName;
+        this.purchasedAmount = purchasedAmount;
+    }
+
+    public void customerDetails() {
+        System.out.println("Customer ID: " + cID);
+        System.out.println("Customer Name: " + cName);
+        System.out.println("Purchased Amount: $" + purchasedAmount);
+    }
+    
+    public Employee getAssociatedEmployee() {
+        return associatedEmployee;
+    }
+
+    public void setAssociatedEmployee(Employee associatedEmployee) {
+        this.associatedEmployee = associatedEmployee;
+    }
+
+    // Getters and setters for the attributes
+    public int getCustomerID() {
+        return cID;
+    }
+
+    public void setCustomerID(int customerID) {
+        this.cID = customerID;
+    }
+
+    public String getCustomerName() {
+        return cName;
+    }
+
+    public void setCustomerName(String customerName) {
+        this.cName = customerName;
+    }
+
+    public double getPurchasedAmount() {
+        return purchasedAmount;
+    }
+
+    public void setPurchasedAmount(double purchasedAmount) {
+        this.purchasedAmount = purchasedAmount;
+    }
+}
+
+//........................................................................
+
+package figure5;
+
+public class Electricals {
+	private int numberOfLights;
+    private int numberOfFans;
+    private int numberOfACs;
+    private int numberOfEscalators;
+    private int numberOfLifts;
+
+    public Electricals(int numberOfLights, int numberOfFans, int numberOfACs, int numberOfEscalators, int numberOfLifts) {
+        this.numberOfLights = numberOfLights;
+        this.numberOfFans = numberOfFans;
+        this.numberOfACs = numberOfACs;
+        this.numberOfEscalators = numberOfEscalators;
+        this.numberOfLifts = numberOfLifts;
+    }
+
+    public void electricalsDetails() {
+        System.out.println("Number of Lights: " + numberOfLights);
+        System.out.println("Number of Fans: " + numberOfFans);
+        System.out.println("Number of ACs: " + numberOfACs);
+        System.out.println("Number of Escalators: " + numberOfEscalators);
+        System.out.println("Number of Lifts: " + numberOfLifts);
+    }
+
+    public void calcPowerConsumption() {
+        int totalPowerConsumption = (numberOfLights * 100) + (numberOfFans * 75) + (numberOfACs * 1500);
+        System.out.println("Total Power Consumption: " + totalPowerConsumption + " watts");
+    }
+
+    // Getters and setters for the attributes
+    public int getNumberOfLights() {
+        return numberOfLights;
+    }
+
+    public void setNumberOfLights(int numberOfLights) {
+        this.numberOfLights = numberOfLights;
+    }
+
+    public int getNumberOfFans() {
+        return numberOfFans;
+    }
+
+    public void setNumberOfFans(int numberOfFans) {
+        this.numberOfFans = numberOfFans;
+    }
+
+    public int getNumberOfACs() {
+        return numberOfACs;
+    }
+
+    public void setNumberOfACs(int numberOfACs) {
+        this.numberOfACs = numberOfACs;
+    }
+
+    public int getNumberOfEscalators() {
+        return numberOfEscalators;
+    }
+
+    public void setNumberOfEscalators(int numberOfEscalators) {
+        this.numberOfEscalators = numberOfEscalators;
+    }
+
+    public int getNumberOfLifts() {
+        return numberOfLifts;
+    }
+
+    public void setNumberOfLifts(int numberOfLifts) {
+        this.numberOfLifts = numberOfLifts;
+    }
+}
+
+//.............................................................................
+
+package figure5;
+
+public class MaintenanceStaff extends Employee {
+	private String specialization;
+	private Floor assignedFloor;	//This shows uni-directional association, since you can go to 
+									//Floor from this class but now vice versa
+	
+	public MaintenanceStaff(int employeeID, String employeeName, int employeeAge, double employeeSalary, String specialization) {
+        super(employeeID, employeeName, employeeAge, employeeSalary); // Call the constructor of the superclass (Employee)
+        this.specialization = specialization;
+    }
+
+    public String getSpecialization() {
+        return specialization;
+    }
+
+    public void setSpecialization(String specialization) {
+        this.specialization = specialization;
+    }
+    
+    public Floor getAssignedFloor() {
+        return assignedFloor;
+    }
+
+    public void setAssignedFloor(Floor assignedFloor) {
+        this.assignedFloor = assignedFloor;
+    }
+}
+
+//..................................................................................
+
+package figure5;
+
+public class ShopKeeper extends Employee {
+	private String shopName;
+    private Shops associatedShop;
+
+    public ShopKeeper(int employeeID, String employeeName, int employeeAge, double employeeSalary, String shopName, String shopLocation) {
+        super(employeeID, employeeName, employeeAge, employeeSalary); // Call the constructor of the superclass (Employee)
+        this.shopName = shopName;
+    }
+
+    public String getShopName() {
+        return shopName;
+    }
+
+    public void setShopName(String shopName) {
+        this.shopName = shopName;
+    }
+
+    public Shops getAssociatedShop() {
+        return associatedShop;
+    }
+
+    public void setAssociatedShop(Shops associatedShop) {
+        this.associatedShop = associatedShop;
+    }
+}
+
+//......................................................................................
+
+package figure5;
+
+public class accessorClass {
+	
+	public static void main(String[] args) {
+		MallManagement myMall = new MallManagement("X", 50);
+	}
+}
