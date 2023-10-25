@@ -57,19 +57,24 @@ public abstract class ShopMenu extends ShopModel {
 
                 case 6:
                     super.details();
+                    break;
                 case 7:
                     // ADD Shop Keeper
                     super.details();
+                    break;
                 case 8:
                     // CALCULATE BILLS
                     super.details();
+                    break;
                 case 9:
                     // VIEW EMPLOYEE
 
                     super.details();
+                    break;
                 case 10:
                     // Select EMPLOYEE
                     super.details();
+                    break;
                 default:
                     System.out.println("DEFAULT ");
                     break;
