@@ -100,4 +100,25 @@ public class ShopModel {
         return -1;
     }
 
+    public void shopKeeperDetails() {
+        for (int i = 0; i < shopKeepers.size(); i++) {
+            shopKeepers.get(i).details(i + " : ");
+        }
+    }
+
+    public int selectShopKeeper() {
+        shopKeeperDetails();
+        return Menu.getIntegerInputWithRange(-1, shopKeepers.size());
+    }
+
+    public boolean showShopKeeperMenu(int index) {
+        if (index < shopKeepers.size()) {
+            shopKeepers.get(index).menu();
+            return true;
+        } else {
+            return false;
+
+        }
+    }
+
 }

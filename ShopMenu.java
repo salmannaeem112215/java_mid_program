@@ -69,10 +69,15 @@ public abstract class ShopMenu extends ShopModel {
                 case 9:
                     // VIEW EMPLOYEE
 
-                    super.details();
+                    super.shopKeeperDetails();
                     break;
                 case 10:
                     // Select EMPLOYEE
+                    int shoperKeeperIndex = selectShopKeeper();
+                    if (shoperKeeperIndex == -1)
+                        return;
+
+                    showShopKeeperMenu(shoperKeeperIndex);
                     super.details();
                     break;
                 default:

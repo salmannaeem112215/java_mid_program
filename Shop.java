@@ -5,14 +5,14 @@ public class Shop extends ShopMenu {
 
     public static Shop dummy(int id) {
         int newId = id * 5;
-        ShopKeeper shopKeeper1 = new ShopKeeper(0 + newId, "shoperKeeper1", 23, 10000);
-        ShopKeeper shopKeeper2 = new ShopKeeper(1 + newId, "shoperKeeper2", 23, 10000);
-        ShopKeeper shopKeeper3 = new ShopKeeper(2 + newId, "shoperKeeper3", 23, 10000);
-        ShopKeeper shopKeeper4 = new ShopKeeper(3 + newId, "shoperKeeper4", 23, 10000);
-        ShopKeeper shopKeeper5 = new ShopKeeper(4 + newId, "shoperKeeper5", 23, 10000);
+        ShopKeeper shopKeeper0 = ShopKeeper.dummy(0 + newId);
+        ShopKeeper shopKeeper1 = ShopKeeper.dummy(1 + newId);
+        ShopKeeper shopKeeper2 = ShopKeeper.dummy(2 + newId);
+        ShopKeeper shopKeeper3 = ShopKeeper.dummy(3 + newId);
+        ShopKeeper shopKeeper4 = ShopKeeper.dummy(4 + newId);
 
-        ShopKeeper[] shopkeepers = new ShopKeeper[] { shopKeeper1, shopKeeper2,
-                shopKeeper3, shopKeeper4, shopKeeper5 };
+        ShopKeeper[] shopkeepers = new ShopKeeper[] { shopKeeper0, shopKeeper1, shopKeeper2,
+                shopKeeper3, shopKeeper4 };
         return new Shop("SHOP1", "WALI AHMED", 100, shopkeepers);
     }
 
