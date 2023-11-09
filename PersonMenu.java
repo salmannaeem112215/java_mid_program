@@ -7,7 +7,7 @@ public abstract class PersonMenu extends PersonModel {
     }
 
     public int displayMenu(int count) {
-        return Menu.display(getName(), actions, count);
+        return Menu.display(getName(), actions, count, DisplayType.start);
     }
 
     public int getTotalActions() {

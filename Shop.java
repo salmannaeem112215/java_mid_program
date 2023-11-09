@@ -19,7 +19,7 @@ public class Shop extends ShopMenu {
     public void menu() {
         while (true) {
             int val = super.displayMenu(0);
-            int actionVal = Menu.getIntegerInputWithRange(-1, val);
+            int actionVal = Menu.getIntegerInputWithRange(-1, val - 1);
             if (actionVal == -1)
                 break;
             System.out.println("------------------------------------------------------");

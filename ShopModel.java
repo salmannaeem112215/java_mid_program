@@ -106,14 +106,24 @@ public class ShopModel {
         }
     }
 
+    public void shopKeeperSelectionDetails(int len) {
+        for (int i = 0; i < shopKeepers.size(); i++) {
+            shopKeepers.get(i).selectionDetails((len + i) + " : ");
+        }
+    }
+
     public int selectShopKeeper() {
-        shopKeeperDetails();
-        return Menu.getIntegerInputWithRange(-1, shopKeepers.size());
+        shopKeeperSelectionDetails(0);
+        return Menu.getIntegerInputWithRange(-1, shopKeepers.size() - 1);
     }
 
     public boolean showShopKeeperMenu(int index) {
+        System.err.println("HI");
         if (index < shopKeepers.size()) {
+
             shopKeepers.get(index).menu();
+
+            System.err.println("OUT OF SHOP KEEPER MENU");
             return true;
         } else {
             return false;

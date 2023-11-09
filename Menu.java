@@ -1,5 +1,9 @@
 import java.util.*;
 
+enum DisplayType {
+    start, end, mid, whole
+};
+
 public interface Menu {
     public void performAction(int action);
 
@@ -14,12 +18,15 @@ public interface Menu {
 
     }
 
-    public static int display(String name, String[] actions, int count) {
+    private static int displayMenu(String name, String[] actions, int count, boolean showStart, boolean showEnd) {
+        System.err.println("SHOW START" + showStart + "  Show End" + showEnd);
         int len = count;
-        System.out.println("--------------------------------------------------------------");
-        System.out.println("|           " + name);
-        System.out.println("--------------------------------------------------------------");
-        System.out.println("| -1| Go Back \\ Quit ");
+        if (count > 0 || showStart) {
+            System.out.println("--------------------------------------------------------------");
+            System.out.println("|           " + name);
+            System.out.println("--------------------------------------------------------------");
+            System.out.println("| -1| Go Back \\ Quit ");
+        }
 
         for (int i = 0; i < actions.length; i++) {
             System.out.print("|");
@@ -34,8 +41,45 @@ public interface Menu {
             len++;
 
         }
-        System.out.println("--------------------------------------------------------------");
+        if (showEnd) {
+
+            System.out.println("--------------------------------------------------------------");
+        }
         return len;
+    }
+
+    public static int display(String name, String[] actions, int count, DisplayType displayType) {
+        if (displayType == DisplayType.start) {
+            return displayMenu(name, actions, count, true, false);
+
+        } else if (displayType == DisplayType.mid) {
+            return displayMenu(name, actions, count, false, false);
+
+        } else if (displayType == DisplayType.end) {
+            return displayMenu(name, actions, count, false, true);
+
+        } else if (displayType == DisplayType.whole) {
+            return displayMenu(name, actions, count, true, true);
+        }
+        return 0;
+
+    }
+
+    public static int display(String name, String[] actions, int count) {
+        return displayMenu(name, actions, count, true, true);
+
+    }
+
+    public static int displayStart(String name, String[] actions, int count) {
+        return displayMenu(name, actions, count, true, false);
+    }
+
+    public static int displayEnd(String name, String[] actions, int count) {
+        return displayMenu(name, actions, count, false, true);
+    }
+
+    public static int displayCenter(String name, String[] actions, int count) {
+        return displayMenu(name, actions, count, false, false);
     }
 
     static public Scanner scanner = new Scanner(System.in);

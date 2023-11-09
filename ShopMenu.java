@@ -73,7 +73,7 @@ public abstract class ShopMenu extends ShopModel {
                     break;
                 case 10:
                     // Select EMPLOYEE
-                    int shoperKeeperIndex = selectShopKeeper();
+                    int shoperKeeperIndex = super.selectShopKeeper();
                     if (shoperKeeperIndex == -1)
                         return;
 

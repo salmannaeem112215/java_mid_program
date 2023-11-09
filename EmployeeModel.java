@@ -21,6 +21,10 @@ public class EmployeeModel extends Person {
         System.out.println(val + " Salary: $" + salary);
     }
 
+    public void selectionDetails(String val) {
+        System.out.println(val + " Name: " + super.getName());
+    }
+
     public void calcSalary() {
         System.out.println("Calculating salary for " + getName());
     }
